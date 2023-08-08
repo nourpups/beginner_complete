@@ -1,0 +1,4 @@
+GET http://nouracea.cea/api/v1/all
+Accept: application/json
+Authorization: Bearer 3|wEYPqLDWvxREVhyMXxEmV490z9cVrix01msghTAz
+###
