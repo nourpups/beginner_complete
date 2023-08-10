@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ApiPractice;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryCollection;
@@ -9,13 +9,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class ApiPracticeController extends Controller
+class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return new CategoryResource(Cache::remember('latest-category', 60*60*12, function () {

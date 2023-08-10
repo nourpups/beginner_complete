@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TagArticleController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,24 +21,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes(['register' => false]);
+
 Route::get('/', [MainController::class, 'index'])->name('main');
-
-Auth::routes();
-
-Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 
 Route::resource('articles', ArticleController::class)->scoped([
     'article' => 'slug',
 ]);
+
 Route::resources([
     'categories' => CategoryController::class,
     'tags' => TagController::class,
 ]);
-Route::resource('categories.articles', CategoryArticleController::class)->scoped([
-    'article' => 'slug',
-    'category' => 'name',
-])->shallow()->only('index', 'create', 'store');
-Route::resource('tags.articles', TagArticleController::class)->scoped([
-    'article' => 'slug',
-    'tag' => 'name',
-])->shallow()->only('index', 'create', 'store');
+
+Route::resource('categories.articles', CategoryArticleController::class)
+      ->scoped([
+          'article' => 'slug',
+          'category' => 'name'
+      ])
+      ->shallow()
+      ->only('index', 'create', 'store');
+
+Route::resource('tags.articles', TagArticleController::class)
+      ->scoped([
+          'article' => 'slug',
+          'tag' => 'name',
+      ])
+      ->shallow()
+      ->only('index', 'create', 'store');

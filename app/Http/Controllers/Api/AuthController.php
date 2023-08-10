@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\ApiPractice;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ApiAuthController extends Controller
+class AuthController extends Controller
 {
     public function register(Request $request) {
         $data = $request->validate([
@@ -19,6 +19,7 @@ class ApiAuthController extends Controller
 
         return User::create($data);
     }
+
     public function login(Request $request) {
         $request->validate([
             'email' => 'required|email',

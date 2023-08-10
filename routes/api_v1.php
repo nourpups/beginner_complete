@@ -1,12 +1,16 @@
 <?php
 
-use App\Http\Controllers\ApiPractice\ApiAuthController;
-use App\Http\Controllers\ApiPractice\ApiPracticeController;
+//use App\Http\Controllers\ApiPractice\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [ApiAuthController::class, 'register'])->name('api-practice.register');
-Route::post('/login', [ApiAuthController::class, 'login'])->name('api-practice.register');
+// ***********************************
+// I don't use the API in the application, it was created for the purpose of learning the API (yes, I was too lazy to create a new project :D)
+// ***********************************
 
-Route::get('/all', [ApiPracticeController::class, 'all'])->name('categories')->middleware('auth:sanctum');
-Route::apiResource('api-practice', ApiPracticeController::class)->middleware('auth:sanctum');
+//Route::post('/register', [AuthController::class, 'register'])->name('api-practice.register');
+//Route::post('/login', [AuthController::class, 'login'])->name('api-practice.register');
+
+//Route::get('/all', [CategoryController::class, 'all'])->name('categories')->middleware('auth:sanctum');
+//Route::apiResource('api-practice', CategoryController::class)->middleware('auth:sanctum');
 
