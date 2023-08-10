@@ -26,3 +26,11 @@
 ## Login credentials
 - Email: welCUM2dm@gmail.com
 - Password: nouracea
+
+## Final! Running on local server
+
+`npm install && npm run dev`
+
+`php artisan serve`
+
+You can now access the server at [http://localhost:8000](http://localhost:8000)
