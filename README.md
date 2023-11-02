@@ -5,32 +5,43 @@
 
 `cd beginner_complete`
 
-`composer install`
+`docker compose up -d`
 
-`php artisan key:generate`
+`docker compose run --rm composer install`
+
+`docker compose run --rm artisan key:generate`
 
 ## Set database settings
 
-`DB_DATABASE=your_db`
+ `cp .env.example .env`
 
-`DB_USERNAME=your_username`
+`DB_HOST=db`
 
-`DB_PASSWORD=your_password`
+`DB_DATABASE=crm_db`
+
+`DB_USERNAME=root`
+
+`DB_PASSWORD=root`
 
 ## Migrations & Seeders
 
-`php artisan migrate`
+`docker compose run --rm artisan migrate`
 
-`php artisan db:seed`
+`docker compose run --rm artisan db:seed`
 
 ## Login credentials
 - Email: welCUM2dm@gmail.com
 - Password: nouracea
 
+## Make Storage files accessible
+.env: `FILESYSTEM_DISK=public`
+
+`docker compose run --rm artisan storage:link`
+    
 ## Final! Running on local server
 
-`npm install && npm run dev`
+`docker compose run --rm npm install`
 
-`php artisan serve`
+`docker compose run --rm npm run build`
 
-You can now access the server at [http://localhost:8000](http://localhost:8000)
+You can now access the application at [http://localhost:8876](http://localhost:8876)
