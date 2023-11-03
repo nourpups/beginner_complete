@@ -9,6 +9,8 @@
 
 `docker compose run --rm composer install`
 
+### Copy .env.example to .env
+
 `docker compose run --rm artisan key:generate`
 
 ## Set database settings
