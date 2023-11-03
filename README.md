@@ -35,8 +35,13 @@
 
 ## Make Storage files accessible
 .env: `FILESYSTEM_DISK=public`
+### Make storage:link inside app container
 
-`docker compose run --rm artisan storage:link`
+`docker exec -it crm_app bash`
+
+`php artisan storage:link`
+
+`exit`
     
 ## Final! Running on local server
 
