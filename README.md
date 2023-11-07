@@ -15,8 +15,6 @@
 
 ## Set database settings
 
- `cp .env.example .env`
-
 `DB_HOST=db`
 
 `DB_DATABASE=crm_db`
